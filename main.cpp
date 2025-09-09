@@ -1,18 +1,10 @@
 #include <iostream>
-using namespace std;
-void f() {
-    int a = 10;
-    ++a;
-    cout << "a= "<< a << endl;
-    static int b = 10;
-    ++b;
-    cout << "b= " <<b << endl;
-}
-extern int x;
-int main() {
-    for (int i = 0; i < 10; ++i) {
-        f();
-    }
-
+int main()
+{
+    int a = 20;
+    std::cout<<std::dec<<a<<std::endl;
+    std::cout<<std::hex<<a<<std::endl;
+    std::cout<<std::oct<<a<<std::endl;
+    std::cin.get();
     return 0;
 }
