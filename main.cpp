@@ -1,11 +1,18 @@
 #include <iostream>
-#include "example.h"
-//lecture 2
-void f();
+using namespace std;
+void f() {
+    int a = 10;
+    ++a;
+    cout << "a= "<< a << endl;
+    static int b = 10;
+    ++b;
+    cout << "b= " <<b << endl;
+}
+extern int x;
 int main() {
-    example example;
-    f();
-    std::cout << "Hello, World!" << std::endl;
-    std::cout << "Help my" << std::endl;
+    for (int i = 0; i < 10; ++i) {
+        f();
+    }
+
     return 0;
 }
