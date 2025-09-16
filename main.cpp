@@ -6,9 +6,11 @@ int main() {
     const double E = 0.0001;
     const double hx = 0.5;
     const double ha = 1.5;
-    for (double x = -2.0, a = 4; x < 2 + E; x += hx, a += ha) {
-        double y = exp(a) / pow(a, x);
-        cout << "a =" << a << "\tx =" << x << "\ty = " << y << "\n";
+    for (double x = -2.0; x < 2 + E; x += hx) {
+        for (double a = 4; a < 10 + E; a += ha) {
+            double y = exp(a) / pow(a, x);
+            cout << "x =" << x << "\ta =" << a << "\ty = " << y << "\n";
+        }
     }
     cout << endl;
 
