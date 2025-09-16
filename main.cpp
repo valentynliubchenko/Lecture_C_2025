@@ -3,16 +3,17 @@
 using namespace std;
 
 int main() {
-    const double E = 0.0001;
-    const double hx = 0.5;
-    const double ha = 1.5;
-    for (double x = -2.0; x < 2 + E; x += hx) {
-        for (double a = 4; a < 10 + E; a += ha) {
-            double y = exp(a) / pow(a, x);
-            cout << "x =" << x << "\ta =" << a << "\ty = " << y << "\n";
-        }
+    const double E = 0.005;
+    double x = 1;
+    double s = 0;
+    while (1.0 / x > E) {
+        cout << "current 1/x = " << 1.0/x << endl;
+        cout << "current suma = " << s << endl;
+        s += 1.0 / x;
+        x += 1;
+        cout << "next 1/x = " << 1.0/x << endl;
     }
-    cout << endl;
-
+    cout << "suma = " << s << endl;
+    cout << "iteration = " << x << endl;
     return 0;
 }
