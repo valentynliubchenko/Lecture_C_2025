@@ -1,13 +1,13 @@
 #include <iostream>
 #include <stdlib.h>
 using namespace std;
+int main()
+{
 
-int main() {
-    int i = -10;
-    while (i <= 10) {
-        cout << i << " ";
-        ++i;
+    for (int i=10; i>=-10; --i)
+    {
+        cout<<i<<" " ;
     }
-    cout << endl;
+    cout<<endl;
     return 0;
 }
