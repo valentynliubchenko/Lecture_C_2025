@@ -4,14 +4,15 @@
 using namespace std;
 
 int main() {
-    int a = 15;
+    int a = 5;
     int b = 7;
-    int min;
-    if (a < b) {
-        min = a;
-    } else {
-        min = b;
-    }
+    int min = (a<b) ? a : b;
+
+    // if (a < b) {
+    //     min = a;
+    // } else {
+    //     min = b;
+    // }
     cout << min << endl;
     return 0;
 }
