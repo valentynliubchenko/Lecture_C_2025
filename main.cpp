@@ -1,13 +1,19 @@
 #include <iostream>
-#include <stdlib.h>
+#include <math.h>
 using namespace std;
 int main()
 {
-
-    for (int i=10; i>=-10; --i)
+    double x,y;
+    char ch;
+    do
     {
-        cout<<i<<" " ;
-    }
+        cout<<"Enter x:";
+        cin>>x;
+        y = pow(sin(x),x);
+        cout<<" y = "<<y<<endl; ;
+        cout<<"continue: (y/n)?";
+        cin>>ch;
+    }while (ch=='y'||ch=='Y');
     cout<<endl;
     return 0;
 }
