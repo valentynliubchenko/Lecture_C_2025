@@ -1,18 +1,18 @@
 #include <iostream>
 #include <math.h>
-#include <stdlib.h>
 using namespace std;
-int main()
-{
-    int x = 0, y = 0;
-    for ( x=0; x<4; y = x, ++x) {
-        cout<<" current x = "<<x<<endl;
-        cout<<" current y = "<<y<<endl;
+
+int main() {
+    const double E = 0.0001;
+    const double hx = 0.5;
+    double a = 4;
+    const double ha = 1.5;
+    for (double x = -2.0; x < 2 + E; x += hx) {
+        double y = exp(a) / pow(a, x);
+        cout << "a =" << a << "\tx =" << x << "\ty = " << y << "\n";
+        a += ha;
     }
-    cout<<"x = "<<x<<endl;
-    cout<<"y = "<<y<<endl;
+    cout << endl;
 
-
-    cout<<"Exit";
     return 0;
 }
