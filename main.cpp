@@ -14,20 +14,24 @@ int main() {
         cout << mas[i] << " ";
     }
 
-    int min = mas[0];
-    int max = mas[0];
+    int imin = 0;
+    int imax = 0;
     for (int i = 1; i < n; ++i) {
-        if (mas[i]<min) {
-            min = mas[i];
+        if (mas[i]<mas[imin]) {
+            imin = i;
         }
-        if (mas[i]>max) {
-            max = mas[i];
+        if (mas[i]>mas[imax]) {
+            imax = i;
         }
-
-
     }
-    cout << "\nmin = " << min << endl;
-    cout << "\nmax = " << max << endl;
+    cout << "\nmin = " << mas[imin] << endl;
+    cout << "index min = " << imin << endl;
+    cout << "max = " << mas[imax] << endl;
+    cout << "index max = " << imax << endl;
 
+    mas[imax] = 1000;
+    for (int i= 0; i < n; ++i) {
+        cout << mas[i] << " ";
+    }
     return 0;
 }
