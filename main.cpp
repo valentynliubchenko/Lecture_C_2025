@@ -3,11 +3,9 @@
 #include <time.h>
 using namespace std;
 
-// 1 2 3 4 0
+// 0 4 3 1 2
 // ----------
-// 1 2 3 0 4
-// 1 2 0 3 4
-// 1 0 2 3 4
+// 0 3 1 2 4
 // 0 1 2 3 4
 
 int main() {
@@ -22,7 +20,7 @@ int main() {
     }
     // сортування
     for (int k = 0; k < n-1; ++k) {
-        for (int i = 0; i < n-1; ++i) {
+        for (int i = 0; i < n-1-k; ++i) {
             if ( mas[i+1] < mas[i] ) {
                 int c = mas[i+1];
                 mas[i+1] = mas[i];
