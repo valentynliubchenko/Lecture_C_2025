@@ -4,16 +4,21 @@
 using namespace std;
 
 int main() {
-    const int n = 10;
+    const int n = 5;
     int mas[n];
-//    srand(time(NULL));
     for (int i = 0; i < n; ++i) {
-        mas[i] = rand()%100;
+        mas[i] = rand() % 10;
     }
 
     for (int i = 0; i < n; ++i) {
         cout << mas[i] << " ";
     }
+    cout << endl;
+    int s = 0;
+    for (int i = 0; i < n; ++i) {
+        s += mas[i];
+    }
+    cout << "suma = " << s << endl;
 
     return 0;
 }
