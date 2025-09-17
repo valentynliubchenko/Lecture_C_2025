@@ -3,10 +3,16 @@
 using namespace std;
 int main()
 {
-    double mas2[4] = {4.5, 5.6, 6.7, 7.8};
-    double a = mas2[2];
-    cout<<a<<endl;
-    mas2[1] = 100;
+    double mas[4];
+    mas[0] = 1.5;
+    mas[1] = 2.5;
+    mas[2] = 1.4;
+    mas[3] = 6.7;
+
+    cout<<mas[0]<<endl;
+    cout<<mas[1]<<endl;
+    cout<<mas[2]<<endl;
+    cout<<mas[3]<<endl;
 
     return 0;
 }
