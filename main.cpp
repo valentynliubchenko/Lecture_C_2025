@@ -1,18 +1,20 @@
 #include <iostream>
 #include <math.h>
 using namespace std;
-int main()
-{
-    double mas[4];
-    mas[0] = 1.5;
-    mas[1] = 2.5;
-    mas[2] = 1.4;
-    mas[3] = 6.7;
 
-    cout<<mas[0]<<endl;
-    cout<<mas[1]<<endl;
-    cout<<mas[2]<<endl;
-    cout<<mas[3]<<endl;
+int main() {
+    const int n = 5;
+    int mas[n];
+    // int a;
+    // cin>>a;
+    for (int i = 0; i < n; ++i) {
+        cout<<"Enter number: "<<i<<": ";
+        cin>>mas[i] ;
+    }
+
+    for (int i = 0; i < n; ++i) {
+        cout << mas[i] << " ";
+    }
 
     return 0;
 }
