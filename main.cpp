@@ -10,13 +10,11 @@ using namespace std;
 
 int main() {
 
-    srand(time(NULL));
-    while (true) {
-        int x = rand()%100;
-        cout << x << " ";
-        if (x%13==0 && x!=0) {
-            break;
+    for (int i = 1; i <= 10; i++) {
+        if (i%3==0) {
+            continue;
         }
+        cout << i << " ";
     }
     cout << "exit"<<endl;
     return 0;
