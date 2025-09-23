@@ -3,27 +3,25 @@
 #include <time.h>
 using namespace std;
 
-// 1 break     - switch for while do while
-// 2 continue  -  for while do while
-// 3 goto будь де
-// 4 return - повертає результ із функції
+struct T {
+    int x,y,t,r,e;
+};
 
-void myLoop() {
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < 10; j++) {
-            for (int k = 0; k < 10; k++) {
-                int x = rand() % 100;
-                cout << i << " " << j << " " << k << " " << x << endl;
-                if (x % 13 == 0 && x != 0) {
-                    cout << "Break" << endl;
-                    return ;
-                }
-            }
-        }
-    }
-}
+
+// тип назва;  - створення звичайної зміни
+// тип* назва;    - створення покажчика/вказівник/поінтер/pointer
 
 int main() {
-    myLoop();
+
+    double a =2.6;
+    double* p1;
+    p1 = &a;
+    cout << p1 <<endl;
+    cout << &a <<endl;
+    cout << *p1 <<endl;//2.6
+    a = 5.8;
+    cout << *p1 <<endl;//5.8
+    *p1 = 3.6;
+    cout << a <<endl;
     return 0;
 }
