@@ -9,7 +9,6 @@ using namespace std;
 // 4 return - повертає результ із функції
 
 int main() {
-    bool isExit = false;
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 10; j++) {
             for (int k = 0; k < 10; k++) {
@@ -17,17 +16,11 @@ int main() {
                 cout << i << " " << j << " " << k << " " << x << endl;
                 if (x % 13 == 0 && x != 0) {
                     cout << "Break" << endl;
-                    isExit = true;
-                    break;
+                    goto myexit;
                 }
             }
-            if (isExit) {
-                break;
-            }
-        }
-        if (isExit) {
-            break;
         }
     }
+    myexit:
     return 0;
 }
