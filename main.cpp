@@ -8,7 +8,7 @@ using namespace std;
 // 3 goto будь де
 // 4 return - повертає результ із функції
 
-int main() {
+void myLoop() {
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 10; j++) {
             for (int k = 0; k < 10; k++) {
@@ -16,11 +16,14 @@ int main() {
                 cout << i << " " << j << " " << k << " " << x << endl;
                 if (x % 13 == 0 && x != 0) {
                     cout << "Break" << endl;
-                    goto myexit;
+                    return ;
                 }
             }
         }
     }
-    myexit:
+}
+
+int main() {
+    myLoop();
     return 0;
 }
