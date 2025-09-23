@@ -3,25 +3,27 @@
 #include <time.h>
 using namespace std;
 
-struct T {
-    int x,y,t,r,e;
-};
-
-
-// тип назва;  - створення звичайної зміни
-// тип* назва;    - створення покажчика/вказівник/поінтер/pointer
-
 int main() {
-
-    double a =2.6;
-    double* p1;
-    p1 = &a;
-    cout << p1 <<endl;
-    cout << &a <<endl;
-    cout << *p1 <<endl;//2.6
-    a = 5.8;
-    cout << *p1 <<endl;//5.8
-    *p1 = 3.6;
-    cout << a <<endl;
+    int mas[5] = {10, 20, 3, 4, 5};
+    for (int i = 0; i < 5; i++) {
+        cout << mas[i] << " ";
+    }
+    cout<<mas<<endl;
+    int * pmas;
+    pmas = mas;
+    cout<<pmas<<endl;
+    cout<<mas[0]<<endl;
+    cout<<&mas[0]<<endl;
+    *pmas = 111;
+    cout<<endl;
+    for (int i = 0; i < 5; i++) {
+        cout << mas[i] << " ";
+    }
+    pmas = &mas[3];   // mas+3
+    *pmas = 323;
+    cout<<endl;
+    for (int i = 0; i < 5; i++) {
+        cout << mas[i] << " ";
+    }
     return 0;
 }
