@@ -10,13 +10,13 @@ using namespace std;
 int main() {
 
     int mas[5]={5,8,3,66,7};
-    int *p1 = &mas[1]; //8
-    int *p2 = &mas[3]; //66
-    cout<< p2- mas<<endl;
-    cout<< p1 -p2<<endl;
-    cout<<mas<<endl;
-    cout<<p2<<endl;
-    cout<<p1<<endl;
+    int *p1 = &mas[2]; //8
+    cout << *p1 << endl;
+    cout << p1[0] << endl;
+    cout << p1[1] << endl;
+    cout << p1[2] << endl;
+    cout << p1[-1] << endl;
+    cout << p1[-2] << endl;
 
     return 0;
 }
