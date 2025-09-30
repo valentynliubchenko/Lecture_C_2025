@@ -5,11 +5,8 @@ using namespace std;
 
 int main() {
     const int n = 10;
-    int mas[n];
-    for (int i = 0; i < n; i++) {
-        mas[i] = rand() % 100;
-    }
-    int *pmas[n];
+    const int mas[n] = {55,42,11,556,433,1,5,7,3,11};
+    const int *pmas[n];
     for (int i = 0; i < n; i++) {
         pmas[i] = mas + i; //&mas[i]
     }
@@ -23,7 +20,7 @@ int main() {
     for (int k = 0; k < n - 1; k++)
         for (int i = 0; i < n-1-k; i++) {
             if (*pmas[i+1] < *pmas[i]) {
-                int* c = pmas[i+1];
+                const int *c = pmas[i+1];
                 pmas[i+1] = pmas[i];
                 pmas[i] = c;
             }
