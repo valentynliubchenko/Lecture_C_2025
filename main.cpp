@@ -4,28 +4,37 @@
 using namespace std;
 
 int main() {
-    int a = 7;
-    int b = 1;
-    int c = 4;
-    int mas[3] = {5,77,2};
-    int* pmas[6];
-    pmas[1] = &a;
-    pmas[0] = &b;
-    pmas[2] = &c;
-    pmas[4] = mas;
-    pmas[5] = mas+1;
-    pmas[3] = &mas[2];
-    for (int i = 0; i < 6; i++) {
-        cout << *pmas[i] <<" ";
+    const int n = 10;
+    int mas[n];
+    for (int i = 0; i < n; i++) {
+        mas[i] = rand() % 100;
     }
-    cout<<endl;
-    for (int i = 0; i < 6; i++) {
-        *pmas[i]+=100;
+    int *pmas[n];
+    for (int i = 0; i < n; i++) {
+        pmas[i] = mas + i; //&mas[i]
     }
-    cout<<a<<" "<<b<<" "<<c<<endl;
-    for (int i = 0; i < 3; i++) {
-        cout << mas[i] <<" ";
+    for (int i = 0; i < n; i++) {
+        cout << mas[i] << " ";
     }
-
+    cout << endl;
+    for (int i = 0; i < n; i++) {
+        cout << *pmas[i] << " ";
+    }
+    for (int k = 0; k < n - 1; k++)
+        for (int i = 0; i < n-1-k; i++) {
+            if (*pmas[i+1] < *pmas[i]) {
+                int* c = pmas[i+1];
+                pmas[i+1] = pmas[i];
+                pmas[i] = c;
+            }
+        }
+    cout <<"\n--------------"<< endl;
+    for (int i = 0; i < n; i++) {
+        cout << mas[i] << " ";
+    }
+    cout << endl;
+    for (int i = 0; i < n; i++) {
+        cout << *pmas[i] << " ";
+    }
     return 0;
 }
