@@ -10,16 +10,13 @@ using namespace std;
 int main() {
 
     int mas[5]={5,8,3,66,7};
-    for(int i=0;i<5;i++) {
-        cout<<mas+i<<"\t"<<&mas[i]<<"\t"<<mas[i]<<endl;
-    }
-    cout<<endl;
-    for(int i=0;i<5;i++) {
-        cout<<*(mas+i)<<"\t"<<mas[i]<<endl;
-        // *(mas+i) <==>  mas[i]
-    }
-
-
+    int *p1 = &mas[1]; //8
+    int *p2 = &mas[3]; //66
+    cout<< p2- mas<<endl;
+    cout<< p1 -p2<<endl;
+    cout<<mas<<endl;
+    cout<<p2<<endl;
+    cout<<p1<<endl;
 
     return 0;
 }
