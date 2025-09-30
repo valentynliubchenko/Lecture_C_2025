@@ -3,24 +3,30 @@
 #include <time.h>
 using namespace std;
 
-// посилання reference
-// тип & назва = ініціаліація;
-// const тип & назва = ініціаліація;
 int main() {
-    int a =90;
-    int& ra = a;
-    cout << ra << endl;
-    cout << a << endl;
-    ra = 100;
-    cout << ra << endl;
-    cout << a << endl;
-    int * const pra = &a;
-    *pra = 123;
-    cout << ra << endl;
-    cout << a << endl;
-    cout << *pra << endl;
-    const int& ra2 = a;   //   const int * const pra2 = &a;
- //   ra2 = 77;
-    cout << ra2 << endl;
+    const int n = 7;
+    int mas[n] = {5, 3, 7, 2, 4, 1, 4};
+    for (int i = 0; i < n; i++) {
+        cout << mas[i] << " " ;
+    }
+    cout << endl;
+    int *pmin = mas; //&mas[0];
+    int *pmax = mas; //&mas[0];
+    for (int i = 1; i < n; i++) {
+        if (mas[i] < *pmin) {
+            pmin = &mas[i]; // mas +i
+        }
+        if (mas[i] > *pmax) {
+            pmax = &mas[i]; // mas +i
+        }
+    }
+    cout << *pmin << " " << *pmax << endl;
+    int c = *pmin;
+    *pmin = *pmax;
+    *pmax = c;
+    for (int i = 0; i < n; i++) {
+        cout << mas[i] << " " ;
+    }
+
     return 0;
 }
