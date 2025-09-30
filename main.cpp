@@ -3,20 +3,24 @@
 #include <time.h>
 using namespace std;
 
-//   адреса + число = адреса. Операція виконується відповідно до розміру типу
-//   адреса - число = адреса. Операція виконується відповідно до розміру типу
-//   адреса - адреса = число, показує зміщення між адресами. Операція виконується відповідно до розміру типу
-//   адреса + адреса   - не існує
+// посилання reference
+// тип & назва = ініціаліація;
+// const тип & назва = ініціаліація;
 int main() {
-
-    int mas[5]={5,8,3,66,7};
-    int *p1 = &mas[2]; //8
-    cout << *p1 << endl;
-    cout << p1[0] << endl;
-    cout << p1[1] << endl;
-    cout << p1[2] << endl;
-    cout << p1[-1] << endl;
-    cout << p1[-2] << endl;
-
+    int a =90;
+    int& ra = a;
+    cout << ra << endl;
+    cout << a << endl;
+    ra = 100;
+    cout << ra << endl;
+    cout << a << endl;
+    int * const pra = &a;
+    *pra = 123;
+    cout << ra << endl;
+    cout << a << endl;
+    cout << *pra << endl;
+    const int& ra2 = a;   //   const int * const pra2 = &a;
+ //   ra2 = 77;
+    cout << ra2 << endl;
     return 0;
 }
