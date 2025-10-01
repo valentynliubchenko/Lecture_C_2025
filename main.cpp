@@ -4,8 +4,8 @@
 using namespace std;
 
 int main() {
-    const int n= 3;
-    const int m= 4;
+    const int n= 4;
+    const int m= 6;
     int matr[n][m];
     // srand(time(NULL));
     for (int i = 0; i < n; i++) {
@@ -17,29 +17,28 @@ int main() {
     for (int i = 0; i < n; i++,cout<<endl)
         for (int j = 0; j < m; j++)
             cout << matr[i][j] << "\t";
-
-    int sum = 0;
-    int neg =0;
-    int min = matr[0][0];
-    int max = matr[0][0];
-
+    cout << endl;
+    int masmin[n];
     for (int i = 0; i < n; i++) {
+        int min =matr[i][0];
         for (int ii = 0; ii < m; ii++) {
-            sum += matr[i][ii];
-            if (matr[i][ii] < 0) {
-                neg++;
-            }
-            if (matr[i][ii] > max) {
-                max = matr[i][ii];
-            }
             if (matr[i][ii] < min) {
                 min = matr[i][ii];
             }
         }
+        //cout<<min<<"\t";
+        masmin[i] = min;
     }
-    cout<<endl<<"sum = "<<sum<<endl;
-    cout<<endl<<"neg = "<<neg<<endl;
-    cout<<endl<<"min = "<<min<<endl;
-    cout<<endl<<"max = "<<max<<endl;
+    for (int i = 0; i < n; i++) {
+        cout << masmin[i] << "\t";
+    }
+    int max =masmin[0];
+    for (int i = 0; i < n; i++) {
+        if (masmin[i] > max) {
+            max = masmin[i];
+        }
+    }
+    cout << "\nmas ="<< max << endl;
+
     return 0;
 }
