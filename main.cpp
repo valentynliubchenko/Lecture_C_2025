@@ -4,40 +4,43 @@
 using namespace std;
 
 int main() {
-    const int n= 4;
-    const int m= 6;
+    const int n = 20;
+    const int m = 4;
     int matr[n][m];
-    // srand(time(NULL));
+    srand(time(NULL));
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            matr[i][j] = rand() % 200 -100;
+            matr[i][j] = rand() % 200 - 100;
         }
     }
 
-    for (int i = 0; i < n; i++,cout<<endl)
+    for (int i = 0; i < n; i++, cout << endl)
         for (int j = 0; j < m; j++)
             cout << matr[i][j] << "\t";
     cout << endl;
-    int masmin[n];
-    for (int i = 0; i < n; i++) {
-        masmin[i] =matr[i][0];
-        for (int ii = 0; ii < m; ii++) {
-            if (matr[i][ii] < masmin[i]) {
-                masmin[i] = matr[i][ii];
+    int maspar[n];
+    for (int j = 0; j < m; j++) {
+        int par =0;
+        for (int i = 0; i < n; i++) {
+            if (matr[i][j] %2==0) {
+                par++;
             }
         }
-        //cout<<min<<"\t";
+        //cout << par << " ";
+        maspar[j] =par;
     }
-    for (int i = 0; i < n; i++) {
-        cout << masmin[i] << "\t";
+    for (int j = 0; j < m; j++) {
+            cout << maspar[j] << "\t";
     }
-    int max =masmin[0];
-    for (int i = 0; i < n; i++) {
-        if (masmin[i] > max) {
-            max = masmin[i];
+
+    int imax = 0;
+    for (int j = 0; j < m; j++) {
+        if (maspar[j] > maspar[imax]) {
+            imax = j;
         }
     }
-    cout << "\nmas ="<< max << endl;
+
+    cout<< "\nindex max = "<< imax << endl;
 
     return 0;
 }
