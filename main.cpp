@@ -20,14 +20,13 @@ int main() {
     cout << endl;
     int masmin[n];
     for (int i = 0; i < n; i++) {
-        int min =matr[i][0];
+        masmin[i] =matr[i][0];
         for (int ii = 0; ii < m; ii++) {
-            if (matr[i][ii] < min) {
-                min = matr[i][ii];
+            if (matr[i][ii] < masmin[i]) {
+                masmin[i] = matr[i][ii];
             }
         }
         //cout<<min<<"\t";
-        masmin[i] = min;
     }
     for (int i = 0; i < n; i++) {
         cout << masmin[i] << "\t";
