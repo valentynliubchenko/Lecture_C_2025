@@ -5,14 +5,14 @@ using namespace std;
 
 int main() {
     const int n = 10;
-    int mas[n] = {55,-42,-11,556,-433,1,5,-7,3,11};
+    int mas[n] = {55,-42,-11,556,-432,2,6,-7,3,12};
     int *pmas[n];
     for (int i = 0; i < n; i++) {
         cout << mas[i] << "\t";
     }
     int len =0;
     for (int i = 0; i < n; i++) {
-        if(mas[i]>0){
+        if(mas[i]%2==0 && mas[i]>0){
             pmas[len++] = &mas[i];
         }
     }
