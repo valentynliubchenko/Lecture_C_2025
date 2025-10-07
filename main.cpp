@@ -17,21 +17,18 @@ int main() {
         for (int j = 0; j < n; j++)
             cout << matr[i][j] << "\t";
 
-    cout<<endl<<endl;
-    for (int i = 0; i < n; i++) {
-                cout << matr[i][n-i-1] << "\t";
-    }
 
-    cout<<endl<<endl;
-    for (int i = 0; i < n; i++) {
-        cout << matr[i][i] << "\t";
-    }
+    for (int k = 0; k < n-1; ++k) //повторення порівнання усіх сусідів
+        for (int i = 0; i < n-1-k; ++i)//процедура порівняння усіх сусідів
+        {
+            if (abs(matr[i+1][i+1]) < abs(matr[i][i]))
+            {//перестановка елементів за правилом трьох стаканів
+                int c = matr[i+1][i+1];
+                matr[i+1][i+1] = matr[i][i];
+                matr[i][i] = c;
+            }
+        }
 
-    for (int index = 0; index < n; index++) {
-        int c =matr[index][index];
-        matr[index][index] =matr[index][n-1-index];
-        matr[index][n-1-index]=c;
-    }
     cout<<endl<<endl;
     for (int i = 0; i < n; i++, cout << endl)
         for (int j = 0; j < n; j++)
