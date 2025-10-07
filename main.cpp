@@ -4,43 +4,44 @@
 using namespace std;
 
 int main() {
-    const int n = 20;
-    const int m = 4;
-    int matr[n][m];
+    const int n = 7;
+    int matr[n][n];
     srand(time(NULL));
     for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
+        for (int j = 0; j < n; j++) {
             matr[i][j] = rand() % 200 - 100;
         }
     }
 
     for (int i = 0; i < n; i++, cout << endl)
-        for (int j = 0; j < m; j++)
+        for (int j = 0; j < n; j++)
             cout << matr[i][j] << "\t";
-    cout << endl;
-    int maspar[n];
-    for (int j = 0; j < m; j++) {
-        int par =0;
-        for (int i = 0; i < n; i++) {
-            if (matr[i][j] %2==0) {
-                par++;
-            }
-        }
-        //cout << par << " ";
-        maspar[j] =par;
-    }
-    for (int j = 0; j < m; j++) {
-            cout << maspar[j] << "\t";
+
+    cout<<endl<<endl;
+    for (int i = 0; i < n; i++) {
+                cout << matr[i][i] << "\t";
     }
 
-    int imax = 0;
-    for (int j = 0; j < m; j++) {
-        if (maspar[j] > maspar[imax]) {
-            imax = j;
-        }
+    int* pmin = &matr[0][0];
+    int* pmax = &matr[0][0];
+    for (int i = 0; i < n; ++i)
+    {
+        if (matr[i][i] < *pmin) pmin = &matr[i][i];// = mas+i;
+        if (matr[i][i] > *pmax) pmax = &matr[i][i];// = mas+i;
     }
+    cout << "\nmin = " << *pmin
+       << " index min = " << pmin-&matr[0][0] << endl;
+    cout << "\nmax = " << *pmax
+       << " index max = " << pmin-&matr[0][0] << endl;
 
-    cout<< "\nindex max = "<< imax << endl;
+    int c =*pmin;
+    *pmin =*pmax;
+    *pmax =c;
+    cout<<endl<<endl;
+
+    for (int i = 0; i < n; i++, cout << endl)
+        for (int j = 0; j < n; j++)
+            cout << matr[i][j] << "\t";
 
     return 0;
 }
