@@ -4,12 +4,12 @@
 using namespace std;
 
 int main() {
-    const int n = 5;
+    const int n = 7;
     int matr[n][n];
-    srand(time(NULL));
+   // srand(time(NULL));
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            matr[i][j] = rand() % 20 - 10;
+            matr[i][j] = rand() % 201 - 100;
         }
     }
 
@@ -22,11 +22,20 @@ int main() {
                 cout << matr[i][n-i-1] << "\t";
     }
 
-    int s = 0 ;
+    cout<<endl<<endl;
     for (int i = 0; i < n; i++) {
-        s += matr[i][n-i-1];
+        cout << matr[i][i] << "\t";
     }
-    cout << "\n\ns = "<<s << endl;
+
+    for (int index = 0; index < n; index++) {
+        int c =matr[index][index];
+        matr[index][index] =matr[index][n-1-index];
+        matr[index][n-1-index]=c;
+    }
+    cout<<endl<<endl;
+    for (int i = 0; i < n; i++, cout << endl)
+        for (int j = 0; j < n; j++)
+            cout << matr[i][j] << "\t";
 
     return 0;
 }
