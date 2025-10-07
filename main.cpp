@@ -31,7 +31,7 @@ int main() {
     int max = 1;
     for (int i = 1; i < n; i++)
         for (int j = n-i; j < n ; j++) {
-            matr[i][j] = -1;
+           // matr[i][j] = -1;
             if (matr[i][j] > max)
                 max = matr[i][j];
         }
