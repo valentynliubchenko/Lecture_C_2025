@@ -6,7 +6,7 @@ using namespace std;
 int main() {
     const int n = 7;
     int matr[n][n];
-   // srand(time(NULL));
+//    srand(time(NULL));
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             matr[i][j] = rand() % 201 - 100+1;
@@ -28,11 +28,14 @@ int main() {
     cout<<"c = "<<c<<endl;
 
 //
-
+    int min = 1;
     for (int i = 1; i < n; i++)
-        for (int j = 0; j < i ; j++)
-            matr[i][j] = -1;
-
+        for (int j = 0; j < i ; j++) {
+            //matr[i][j] = -1;
+            if (matr[i][j] < min)
+                min = matr[i][j];
+        }
+    cout<<"min = "<<min<<endl;
     cout<<endl<<endl;
     for (int i = 0; i < n; i++, cout << endl)
         for (int j = 0; j < n; j++)
