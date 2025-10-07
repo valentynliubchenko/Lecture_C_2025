@@ -21,21 +21,21 @@ int main() {
     int c  =0;
     for (int i = 0; i < n-1; i++)
         for (int j = 0; j < n-1-i; j++) {
-            matr[i][j] =0;
-            // if (matr[i][j]%2!=0)
-            //     ++c;
+//            matr[i][j] =0;
+           if (matr[i][j]%2==0)
+                ++c;
         }
     cout<<"c = "<<c<<endl;
 
 //
-    int min = 1;
+    int max = 1;
     for (int i = 1; i < n; i++)
         for (int j = n-i; j < n ; j++) {
             matr[i][j] = -1;
-            // if (matr[i][j] < min)
-            //     min = matr[i][j];
+            if (matr[i][j] > max)
+                max = matr[i][j];
         }
-    cout<<"min = "<<min<<endl;
+    cout<<"max = "<<max<<endl;
     cout<<endl<<endl;
     for (int i = 0; i < n; i++, cout << endl)
         for (int j = 0; j < n; j++)
