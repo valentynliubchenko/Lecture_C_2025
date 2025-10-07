@@ -20,20 +20,20 @@ int main() {
 //
     int c  =0;
     for (int i = 0; i < n-1; i++)
-        for (int j = i+1; j < n; j++) {
-            //matr[i][j] =0;
-            if (matr[i][j]%2!=0)
-                ++c;
+        for (int j = 0; j < n-1-i; j++) {
+            matr[i][j] =0;
+            // if (matr[i][j]%2!=0)
+            //     ++c;
         }
     cout<<"c = "<<c<<endl;
 
 //
     int min = 1;
     for (int i = 1; i < n; i++)
-        for (int j = 0; j < i ; j++) {
-            //matr[i][j] = -1;
-            if (matr[i][j] < min)
-                min = matr[i][j];
+        for (int j = n-i; j < n ; j++) {
+            matr[i][j] = -1;
+            // if (matr[i][j] < min)
+            //     min = matr[i][j];
         }
     cout<<"min = "<<min<<endl;
     cout<<endl<<endl;
