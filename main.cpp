@@ -9,7 +9,7 @@ int main() {
    // srand(time(NULL));
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            matr[i][j] = rand() % 201 - 100;
+            matr[i][j] = rand() % 201 - 100+1;
         }
     }
 
@@ -17,17 +17,16 @@ int main() {
         for (int j = 0; j < n; j++)
             cout << matr[i][j] << "\t";
 
+//
+    for (int i = 0; i < n-1; i++)
+        for (int j = i+1; j < n; j++)
+            matr[i][j] =0;
 
-    for (int k = 0; k < n-1; ++k) //повторення порівнання усіх сусідів
-        for (int i = 0; i < n-1-k; ++i)//процедура порівняння усіх сусідів
-        {
-            if (abs(matr[i+1][i+1]) < abs(matr[i][i]))
-            {//перестановка елементів за правилом трьох стаканів
-                int c = matr[i+1][i+1];
-                matr[i+1][i+1] = matr[i][i];
-                matr[i][i] = c;
-            }
-        }
+//
+
+    for (int i = 1; i < n; i++)
+        for (int j = 0; j < i ; j++)
+            matr[i][j] = -1;
 
     cout<<endl<<endl;
     for (int i = 0; i < n; i++, cout << endl)
