@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-    const int n = 7;
+    const int n = 12;
     int matr[n][n];
 //    srand(time(NULL));
     for (int i = 0; i < n; i++) {
@@ -18,24 +18,11 @@ int main() {
             cout << matr[i][j] << "\t";
 
 //
-    int c  =0;
-    for (int i = 0; i < n-1; i++)
-        for (int j = 0; j < n-1-i; j++) {
-//            matr[i][j] =0;
-           if (matr[i][j]%2==0)
-                ++c;
-        }
-    cout<<"c = "<<c<<endl;
+    for (int i = 0; i < (n-1)/2; i++)
+        for (int j = i+1; j < n-1-i; j++)
+            matr[i][j] = 0;
 
-//
-    int max = 1;
-    for (int i = 1; i < n; i++)
-        for (int j = n-i; j < n ; j++) {
-           // matr[i][j] = -1;
-            if (matr[i][j] > max)
-                max = matr[i][j];
-        }
-    cout<<"max = "<<max<<endl;
+
     cout<<endl<<endl;
     for (int i = 0; i < n; i++, cout << endl)
         for (int j = 0; j < n; j++)
