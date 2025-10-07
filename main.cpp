@@ -18,9 +18,14 @@ int main() {
             cout << matr[i][j] << "\t";
 
 //
+    int c  =0;
     for (int i = 0; i < n-1; i++)
-        for (int j = i+1; j < n; j++)
-            matr[i][j] =0;
+        for (int j = i+1; j < n; j++) {
+            //matr[i][j] =0;
+            if (matr[i][j]%2!=0)
+                ++c;
+        }
+    cout<<"c = "<<c<<endl;
 
 //
 
