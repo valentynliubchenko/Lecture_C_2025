@@ -28,5 +28,8 @@ int main() {
 
     // matr[i][j]  <==>   *(matr[i] + j)   <==> *(*(matr+i) + j) - формула еквівалентності
 
+    int mas[5] ={5,6,78,9,5};
+    cout<<mas[2]<<" "<< *(mas+2) << " "<< *(2+mas) << " "<< 2[mas]<<endl;
+
     return 0;
 }
