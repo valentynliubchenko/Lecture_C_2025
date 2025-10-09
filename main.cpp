@@ -8,8 +8,11 @@ int main() {
     int n;
     cout << "Enter the number of rows: ";
     cin >> n;
+    //
+   // double* mas = (double*)malloc(sizeof(double) *n); //створення динамічного масиву
 
-    double* mas = (double*)malloc(sizeof(double) *n); //створення динамічного масиву
+    double* mas = new double[n];
+
 
     for (int i = 0; i < n; i++) {
         mas[i] = rand()%10000/100.0;
@@ -23,6 +26,7 @@ int main() {
     }
     cout<<"\nThe sum is: "<<sum;
 
-    free(mas);
+    //free(mas);
+    delete [] mas;
 return 0;
 }
