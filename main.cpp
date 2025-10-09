@@ -3,23 +3,22 @@
 #include <time.h>
 using namespace std;
 
+// ТИП* ІМЯ = (ТИП*)malloc(sizeof(ТИП));
+// free(ІМЯ);
+struct myT {
+    int a,t,fd,gh,f,r;
+    char msg[1000];
+};
+
 int main() {
-    void *p;
-    int *pa;
-    int a = 25;
-    float b =2.5;
-    double c =3.6;
 
-    pa = &a;
-    p = &a;
-    cout<< *((int*)p)<<endl;
+    cout<<sizeof(myT)<<endl;
+    myT* b = (myT*)malloc(sizeof(myT));
 
-    p = &b;
-    cout<< *((float*)p)<<endl;
-    p = &c;
-    cout<< *((double*)p)<<endl;
+    (*b).gh = 89 ;
+    cout<<(*b).gh<<endl;
 
-    //cout<<*pa<<endl;
+    free(b);
 
     return 0;
 }
