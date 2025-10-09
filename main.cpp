@@ -5,15 +5,24 @@ using namespace std;
 
 int main() {
 
-    cout<<sizeof(double)<<endl;
-    //double* b = (double*)malloc(sizeof(double));
-    double* b = new double(89);
-    cout<<*b<<endl;
-    *b = 154 ;
-    cout<<*b<<endl;
+    int n;
+    cout << "Enter the number of rows: ";
+    cin >> n;
 
-    //free(b);
-    delete b;
+    double* mas = (double*)malloc(sizeof(double) *n); //створення динамічного масиву
 
-    return 0;
+    for (int i = 0; i < n; i++) {
+        mas[i] = rand()%10000/100.0;
+    }
+    for (int i = 0; i < n; i++) {
+        cout << mas[i] << " ";
+    }
+    double sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += mas[i];
+    }
+    cout<<"\nThe sum is: "<<sum;
+
+    free(mas);
+return 0;
 }
