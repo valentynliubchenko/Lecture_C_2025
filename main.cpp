@@ -4,32 +4,25 @@
 using namespace std;
 
 int main() {
-    const int n = 4;
-    const int m = 5;
-    int matr[n][m];
+    const int n = 3;
+    const int m = 4;
+    const int k = 2;
+    int mas3d[n][m][k];
 
 //    srand(time(NULL));
     for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            matr[i][j] = rand() % 201 - 100+1;
+        for (int ii = 0; ii < m; ii++)
+            for (int iii = 0; iii < k; iii++) {
+            mas3d[i][ii][iii] = rand() % 201 - 100+1;
         }
     }
-
     cout<<endl<<endl;
     for (int i = 0; i < n; i++, cout << endl)
-        for (int j = 0; j < m; j++)
-            cout << matr[i][j] << "\t";
+        for (int ii = 0; ii < m; ii++) {
+            for (int iii = 0; iii < k; iii++)
+                cout << mas3d[i][ii][iii] << "\t";
+            cout << endl;
+        }
     cout<<endl<<endl;
-    for (int i = 0; i < n; i++)
-        cout<< matr[i][0]<<" " <<&matr[i][0]<< " " << matr[i]<<" "<< *matr[i]<<endl;
-
-
-    cout<< matr[1]  + 2 << " "<< *(matr[1]  + 2) << " "<<matr[1][2] <<" "<<&matr[1][2]<<endl;
-
-    // matr[i][j]  <==>   *(matr[i] + j)   <==> *(*(matr+i) + j) - формула еквівалентності
-
-    int mas[5] ={5,6,78,9,5};
-    cout<<mas[2]<<" "<< *(mas+2) << " "<< *(2+mas) << " "<< 2[mas]<<endl;
-
     return 0;
 }
