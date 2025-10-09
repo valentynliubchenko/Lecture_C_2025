@@ -19,6 +19,14 @@ int main() {
     for (int i = 0; i < n; i++, cout << endl)
         for (int j = 0; j < m; j++)
             cout << matr[i][j] << "\t";
+    cout<<endl<<endl;
+    for (int i = 0; i < n; i++)
+        cout<< matr[i][0]<<" " <<&matr[i][0]<< " " << matr[i]<<" "<< *matr[i]<<endl;
+
+
+    cout<< matr[1]  + 2 << " "<< *(matr[1]  + 2) << " "<<matr[1][2] <<" "<<&matr[1][2]<<endl;
+
+    // matr[i][j]  <==>   *(matr[i] + j)   <==> *(*(matr+i) + j) - формула еквівалентності
 
     return 0;
 }
