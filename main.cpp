@@ -4,35 +4,20 @@
 using namespace std;
 
 int main() {
-    const int n = 12;
-    int matr[n][n];
+    const int n = 4;
+    const int m = 5;
+    int matr[n][m];
+
 //    srand(time(NULL));
     for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
+        for (int j = 0; j < m; j++) {
             matr[i][j] = rand() % 201 - 100+1;
         }
     }
 
-    for (int i = 0; i < n; i++, cout << endl)
-        for (int j = 0; j < n; j++)
-            cout << matr[i][j] << "\t";
-
-//
-    //вище головної та побічної
-    for (int i = 0; i < (n-1)/2; i++)
-        for (int j = i+1; j < n-1-i; j++)
-            matr[i][j] = 2;
-
-    //ничжче головної та вище побічної
-
-    //ничжче головної та ничжче  побічної
-
-    //ничжче головної та вище побічної  побічної
-
-
     cout<<endl<<endl;
     for (int i = 0; i < n; i++, cout << endl)
-        for (int j = 0; j < n; j++)
+        for (int j = 0; j < m; j++)
             cout << matr[i][j] << "\t";
 
     return 0;
