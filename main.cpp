@@ -30,6 +30,32 @@ int main() {
         }
         cout << endl;
     }
+//sort
+    int index = 2;
+    if ( index<0 || index>=m) {
+        cout<< "Invalid index";
+        return 2;
+    }
+
+    for (int k = 0; k < n-1; k++)
+    for (int i = 0; i < n-1-k; i++) {
+        if (matr[i+1][index]< matr[i][index]) {
+            double temp = matr[i+1][index];
+            matr[i+1][index] = matr[i][index];
+            matr[i][index] =temp;
+        }
+    }
+
+    //
+    cout<<endl;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            cout << matr[i][j] << "\t";
+        }
+        cout << endl;
+    }
+
+
 
     for (int i = 0; i < n; i++) {
         delete[] matr[i];
