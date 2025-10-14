@@ -5,57 +5,66 @@ using namespace std;
 int main() {
     int n;
     int m;
+    int w;
     cout << "Enter n>0" << endl;
     cin >> n;
     cout << "Enter m>0" << endl;
     cin >> m;
-    if (n <= 0 || m <= 0) {
+
+    cout << "Enter w>0" << endl;
+    cin >> w;
+
+    if (n <= 0 || m <= 0 || w <= 0) {
         cout << "Invalid Input" << endl;
         return 1;
     }
     // створення динамічного масиву по другій схемі
-    double **matr = new double *[n];
-    matr[0] = new double[n*m];
-    for (int i = 1; i < n; ++i)
-        matr[i] = matr[0]+i*m;
-
-
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            matr[i][j] = rand() % 10000 / 100.0;
+    double ***mas3D = new double **[n];
+    for (int i = 0; i < n; ++i) {
+        mas3D[i] = new double*[m];
+        for (int j = 0; j < m; ++j) {
+            mas3D[i][j] = new double[w];
         }
     }
 
+
+
     for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            cout << matr[i][j] << "\t";
+        for (int j = 0; j < m; j++)
+            for (int l = 0; l < w; l++){
+            mas3D[i][j][l] = rand() % 10000 / 100.0;
         }
-        cout << endl;
     }
-    //sort
-    for (int index = 0; index < m; index++) { //задаємо який стовпчик ми сортуємо
-        for (int k = 0; k < n - 1; k++)
-            for (int i = 0; i < n - 1 - k; i++) {
-                if (matr[i + 1][index] < matr[i][index]) {
-                    double temp = matr[i + 1][index];
-                    matr[i + 1][index] = matr[i][index];
-                    matr[i][index] = temp;
-                }
+
+    for (int i = 0; i < n; i++, cout << endl) {
+        for (int j = 0; j < m; j++, cout << endl)
+            for (int l = 0; l < w; l++){
+            cout << mas3D[i][j][l] << "\t";
+        }
+    }
+//    sort
+     int index3  =2;
+     for (int index = 0; index < m; index++) { //задаємо який стовпчик ми сортуємо
+         for (int k = 0; k < n - 1; k++)
+             for (int i = 0; i < n - 1 - k; i++) {
+                 if (mas3D[i + 1][index][index3] < mas3D[i][index][index3]) {
+                     double temp = mas3D[i + 1][index][index3];
+                     mas3D[i + 1][index][index3] = mas3D[i][index][index3];
+                     mas3D[i][index][index3] = temp;
+                 }
+             }
+     }
+
+     //
+     cout <<"\nResult"<< endl;
+
+    for (int i = 0; i < n; i++, cout << endl) {
+        for (int j = 0; j < m; j++, cout << endl)
+            for (int l = 0; l < w; l++){
+                cout << mas3D[i][j][l] << "\t";
             }
     }
-
-    //
-    cout << endl;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            cout << matr[i][j] << "\t";
-        }
-        cout << endl;
-    }
-
-
-    delete[] matr[0];
-    delete[] matr;
+    delete[] mas3D;
 
     return 0;
 }
