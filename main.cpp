@@ -13,10 +13,12 @@ int main() {
         cout << "Invalid Input" << endl;
         return 1;
     }
+    // створення динамічного масиву по другій схемі
     double **matr = new double *[n];
-    for (int i = 0; i < n; i++) {
-        matr[i] = new double[m];
-    }
+    matr[0] = new double[n*m];
+    for (int i = 1; i < n; ++i)
+        matr[i] = matr[0]+i*m;
+
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
@@ -52,9 +54,7 @@ int main() {
     }
 
 
-    for (int i = 0; i < n; i++) {
-        delete[] matr[i];
-    }
+    delete[] matr[0];
     delete[] matr;
 
     return 0;
