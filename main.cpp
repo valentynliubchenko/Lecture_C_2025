@@ -1,23 +1,20 @@
-#include <stdio.h>
 #include <iostream>
+#include <stdio.h>
 #include <stdlib.h>
 using namespace std;
 int main()
 {
-    char str[100];
-    char str1[100];
-    char str2[100];
+    char ch[4];
+    char str2[] = "Help me please";
 
-    //cin>>str;
-//    cin>>str1;
-  //  cin>>str2;
-    scanf("%s",str);
-    scanf("%s",str1);
-    scanf("%s",str2);
 
-    printf("%s\n",str);
-    printf("%s\n",str1);
-    printf("%s\n",str2);
+    cout << str2 << endl;
+    str2[7] = 0;
+    cout << str2 << endl;
+    cout<<&str2[8]<<endl;
+    cout<<str2+8<<endl;
+
+
 
     return 0;
 }
