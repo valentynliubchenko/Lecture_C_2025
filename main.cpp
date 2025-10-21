@@ -6,13 +6,10 @@
 using namespace std;
 int main()
 {
-    char str[100] = "Help me please";
-    char strC[100]="";
-    strncpy(strC, str, 9);
-    //strC[9]='\0';
+    char str[100] = "Help me ";
+    char str2[100]="please";
+    strcat(str, str2 );
     cout << str << endl;
-    cout << strC << endl;
-
 
     return 0;
 }
