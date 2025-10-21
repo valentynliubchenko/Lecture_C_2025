@@ -19,7 +19,11 @@ int main() {
             )
         ) {
             ++num;
-            *curW = '-';
+            // for (int i = 0; i < lenK; ++i) {
+            //     curW[i]='-';
+            // }
+            // *curW = '-';
+            strncpy(curW, "-------",lenK );
         }
         curW = strstr(curW + lenK, word);
     }
