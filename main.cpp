@@ -1,18 +1,19 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 using namespace std;
 int main()
 {
-    char ch[4];
-    char str2[] = "Help me please";
-
-
-    cout << str2 << endl;
-    str2[7] = 0;
-    cout << str2 << endl;
-    cout<<&str2[8]<<endl;
-    cout<<str2+8<<endl;
+    char str[100] = "Help me please";
+    char strC[100]="Hello world";
+    char *res = strcpy(strC+6, str+5);
+    cout << str << endl;
+    cout << strC << endl;
+    cout << res << endl;
+    cout << strC << endl;
+    cout << res << endl;
 
 
 
