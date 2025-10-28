@@ -1,35 +1,18 @@
 #include <iostream>
-#include <stdlib.h>
 #include <string.h>
 using namespace std;
-
-int main() {
-    char str[1000] = "Kyiv, Lviv, Kharkiv, ddKyiv"
-            " Kyivskyi, Lvivskyi, Kharkivskyi! Kyiv"
-            " Kyivskyi, Lvivskyi, Kharkivskyi! Kyiv";
-    char word[] = "Kyiv";
-    char sep[] = " ,./!";
-    int lenK = strlen(word);
-    int num = 0;
-    char *curW = strstr(str, word);
-    while (curW != NULL) {
-        if (strchr(sep, curW[lenK]) != NULL &&
-            (curW != str && strchr(sep, curW[-1]) != NULL
-             || curW == str
-            )
-        ) {
-            ++num;
-            // for (int i = 0; i < lenK; ++i) {
-            //     curW[i]='-';
-            // }
-            // *curW = '-';
-            strncpy(curW, "-------",lenK );
-        }
-        curW = strstr(curW + lenK, word);
+int main()
+{
+    int col = 0;
+    char str[] = "      Help, me! PleAase! sdf,gsd weArt qw432 xfgbhAdfyj 5654      ";
+    char delimiters[] = " ;!.\t\nA";//розділові знаки
+    std::cout << str << std::endl;
+    char* curWord = strtok(str, delimiters);//пошук першого слова
+    while (curWord)
+    {
+        cout << curWord << endl;
+        curWord = strtok(NULL, delimiters);//пошук наступного слова
     }
-
-    cout << "Num = " << num << endl;
-    cout << str << endl;
 
     return 0;
 }
