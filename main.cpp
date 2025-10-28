@@ -3,14 +3,14 @@
 using namespace std;
 
 int main() {
-    char str[] = "    RepetitioR este mater AAAAUAUAUAIIII studiorum. eghjttyyt ertereeeeioioa HelpH. eKJHLKJHLkt esdfgsdfg";
+    char str[] = "    ";
     char delimiters[] = " ;,!.\t\n"; //розділові знаки
     char gl[] = "EUIOAeuioa";
     std::cout << str << std::endl;
     char *curWord = strtok(str, delimiters); //пошук першого слова
     char * pMax = curWord;
     int numMax = 0;
-    for (int i = 0; curWord[i] != '\0'; i++) {
+    for (int i = 0; curWord&&curWord[i] != '\0'; i++) {
         if ( strchr(gl, curWord[i]) != NULL) {
             ++numMax;
         }
@@ -32,5 +32,7 @@ int main() {
     }
     if (pMax)
         cout <<"max = "<< pMax << endl;
+    else
+        cout <<"no found "<< endl;
     return 0;
 }
