@@ -1,22 +1,18 @@
 #include <iostream>
+#include <stdlib.h>
 #include <string.h>
 using namespace std;
-
-int main() {
-    char str[100] ="";
-    int n;
-    do {
-        cout<<" Input n>0:  ";
-        cin >>str;
-        n = atoi(str);
-    } while (n <= 0);
-    int * mas = new int[n];
-    for (int i = 0; i < n; i++) {
-        mas[i] = rand() % 100;
-        cout<<mas[i]<<" ";
+int main()
+{
+    char str[] =   "asdf45645g 3456sD  FDF ";
+    int num = 0;
+    for (int i = 0; i < str[i]!='\0'; i++) {
+        if (str[i] >= 'A' && str[i] <= 'Z'
+            || str[i] >= 'a' && str[i] <= 'z') {
+            ++num;
+        }
     }
+    cout << num;
 
-    delete[] mas;
-
-    return 0;
 }
+
