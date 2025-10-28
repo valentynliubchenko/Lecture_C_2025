@@ -3,19 +3,21 @@
 using namespace std;
 
 int main() {
-    char str[] = "RepetitioR este mater studiorum. eghjttyyt HelpH. eKJHLKJHLkt esdfgsdfg";
-    char strres[1000]="";
+    char str[] = "RepetitioR este mater studiorum. eghjttyyt ertereeeeioioa HelpH. eKJHLKJHLkt esdfgsdfg";
     char delimiters[] = " ;,!.\t\n"; //розділові знаки
+    char gl[] = "EUIOAeuioa";
     std::cout << str << std::endl;
     char *curWord = strtok(str, delimiters); //пошук першого слова
     while (curWord) {
-        if (curWord[0] == curWord[strlen(curWord) -1] ) {
-//            cout << curWord << "\t" << strlen(curWord) << endl;
-            strcat(strres, curWord);
-            strcat(strres, " ");
+        int num=0;
+        for (int i = 0; curWord[i] != '\0'; i++) {
+            if ( strchr(gl, curWord[i]) != NULL) {
+                ++num;
+            }
         }
+        cout << curWord << "\t" << num << endl;
         curWord = strtok(NULL, delimiters); //пошук наступного слова
     }
-    cout<<strres<<endl;
+
     return 0;
 }
