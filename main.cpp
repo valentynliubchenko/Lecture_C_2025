@@ -3,32 +3,22 @@
 using namespace std;
 
 int main() {
-    const int n = 6;
-    char pibs[n][20] = {
-        "Ivanov K.",
-        "Sidirov Z.",
-        "Abramov R.",
-        "aPetrov Z.",
-        "Mirosh R.",
-        "Rudnev Z."
-    };
-    for (int i = 0; i < n; i++) {
-        cout << pibs[i] << endl;
+    char str[] = 	"This header declares a set of functions to classify "
+        " and transform individual charactkers.";
+    cout << str << endl;
+    char * p1 = strchr(str, 'a');
+    char * p2 = strrchr(str, 'i');
+    char res[1000]="";
+    if (p1&&p2) {
+        if (p1<p2)
+            strncat(res, p1+1, p2-p1-1);
+        else
+            strncat(res, p2+1, p1-p2-1);
     }
+    else
+        cout << "Not found" << endl;
+    cout<<res<<endl;
 
-    for (int k = 0; k < n - 1; k++) {
-        for (int i = 0; i < n - 1 - k; i++) {
-            if (strcmp(pibs[i + 1], pibs[i]) < 0) {
-                char c[20];
-                strcpy(c, pibs[i + 1]);
-                strcpy(pibs[i+1], pibs[i]);
-                strcpy(pibs[i], c);
-            }
-        }
-    }
-    cout<<endl<<endl;
-    for (int i = 0; i < n; i++) {
-        cout << pibs[i] << endl;
-    }
+
     return 0;
 }
