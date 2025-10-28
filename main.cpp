@@ -3,22 +3,20 @@
 using namespace std;
 
 int main() {
-    char str[] = 	"This header declares a set of functions to classify "
-        " and transform individual charactkers.";
-    cout << str << endl;
-    char * p1 = strchr(str, 'a');
-    char * p2 = strrchr(str, 'i');
-    char res[1000]="";
-    if (p1&&p2) {
-        if (p1<p2)
-            strncat(res, p1+1, p2-p1-1);
-        else
-            strncat(res, p2+1, p1-p2-1);
+    char str[100] ="";
+    int n;
+    do {
+        cout<<" Input n>0:  ";
+        cin >>str;
+        n = atoi(str);
+    } while (n <= 0);
+    int * mas = new int[n];
+    for (int i = 0; i < n; i++) {
+        mas[i] = rand() % 100;
+        cout<<mas[i]<<" ";
     }
-    else
-        cout << "Not found" << endl;
-    cout<<res<<endl;
 
+    delete[] mas;
 
     return 0;
 }
