@@ -4,12 +4,9 @@
 using namespace std;
 
 struct Triangle {
-    struct Tpoint {
+    struct {
         int x, y;
-    };
-    Tpoint p1; // Вкладена структура
-    Tpoint p2; // Вкладена структура
-    Tpoint p3; // Вкладена структура
+    }p1, p2,p3;
     char comment[50]; // коментарій
 };
 
@@ -27,11 +24,7 @@ int main() {
     cout << t.p2.x << " " << t.p2.y << endl;
     cout << t.p3.x << " " << t.p3.y << endl;
     cout << t.comment << endl;
-    Triangle::Tpoint p2;
-    Triangle::Tpoint p3;
-    p2.x = 1;
-    p2.y = 2;
-    char comment[50]; // коментарій
+
 
     cout << "exit" << endl;
     return 0;
