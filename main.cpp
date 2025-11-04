@@ -1,25 +1,44 @@
 #include <cmath>
 #include <iostream>
-#include <vector>
-#include <string.h>
+#include <math.h>
 using namespace std;
-typedef
-struct RRRRR {
-    int x,y;
-}   Tpoint_t;
+
+typedef double (*Tptrfun) (double);
+typedef double (*Tptrfun2) (double, double);
+double myF(double x) {
+    return x*x;
+}
 
 int main()
 {
-    Tpoint_t point1;
-    point1.x = 10;
-    point1.y = 20;
+    Tptrfun ptrfun;
+    Tptrfun ptrfun2;
 
-    RRRRR point2;
-    point2.x = 30;
-    point2.y = 40;
-    struct RRRRR point3;
-    point3.x = 50;
-    point3.y = 60;
+    double x =1.2;
+    double y;
+    y =sin(x);
+    cout << y << endl;
+    ptrfun = &sin;
+    y = ptrfun(x);
+    cout << y << endl;
+    y = (*ptrfun)(x);
+    cout << y << endl;
+    y=cos(x);
+    cout << y << endl;
+
+    ptrfun = &cos;
+    y = ptrfun(x);
+    cout << y << endl;
+    y = (*ptrfun)(x);
+    cout << y << endl;
+
+    Tptrfun2 ptrfun3;
+    ptrfun3 = &pow;
+    y = ptrfun3(2, 3.0);
+    cout << y << endl;
+    ptrfun = &myF;
+    y = ptrfun(10);
+    cout << y << endl;
     return 0;
 
 }
