@@ -1,22 +1,24 @@
 #include <iostream>
 #include <stdlib.h>
 using namespace std;
-struct T3
+struct T4
 {
     int a;
-    struct
+    struct T
     {
         int b;
-    }obj, obj2,obj3;
+    }obj;
     char c;
 };
 int main()
 {
-    T3 t;
+    T4 t;
     t.a = 1;
-//    t.b = 2;
+    t.obj.b = 2;
     t.c = 3;
-    cout << sizeof(t) << endl;//8
+    cout << sizeof(t) << endl;//12
+    T4::T t2;
+    t2.b = 56;
 
     return 0;
 }
