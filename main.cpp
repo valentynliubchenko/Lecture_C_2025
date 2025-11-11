@@ -1,51 +1,36 @@
-// Створити структуру яка зберігає інформацію про студента. Студент характеризується полями: Ім’я, Прізвище, Середній бал, Адреса проживання.
-// Адреса проживання являється також структурою з полями: Вулиця , Номер будинку, Номер квартири.
-// Створити об’єкт і ввести усю інформацію з клавіатури. Вивести усі поля структури.
+// Створити структуру яка зберігає інформацію про студента.
+// Студент характеризується полями : Ім’я Середній бал.
+// Створити масив структур, який зберігає інформацію про групу.
+// Відсортувати елементи масиву за абеткою та вивести на екран.
 
 #include <iostream>
 #include <string.h>
 using namespace std;
 
-struct Adr {
-    char street[20];
-    int numBuild;
-    int numFlat;
-};
-
 struct Student {
-    char name[20];
-    char lastName[20];
+    char name[100];
     int avarge;
-    Adr adr;
 };
 int main()
 {
-    //введення
     char tmpStr[100]="";
-    Student student;
-    cout << "Enter student name: ";
-    cin.getline(student.name,19);
-    cout << "Enter student last name: ";
-    cin.getline(student.lastName,19);
-    cout << "Enter student avarge: ";
-    cin.getline(tmpStr,99);
-    student.avarge = atoi(tmpStr);
-    cout << "Enter Street ";
-    cin.getline(student.adr.street,99);
-    cout << "Enter numBuild ";
-    cin.getline(tmpStr,99);
-    student.adr.numBuild = atoi(tmpStr);
-    cout << "Enter numFlat ";
-    cin.getline(tmpStr,99);
-    student.adr.numFlat = atoi(tmpStr);
+
+    const int n =3;
+    Student info[n];
+    for (int i = 0; i < n; i++) {
+        cout << "Enter student name: ";
+        cin.getline(info[i].name,99);
+        cout << "Enter student avarge: ";
+        cin >> info[i].avarge;
+        cin.getline(tmpStr,99);
+        info[i].avarge = atoi(tmpStr);
+    }
+    //введення
 
     //виведення
-    cout<<"Name: "<<student.name<<endl;
-    cout<<"Last Name: "<<student.lastName<<endl;
-    cout<<"Avarge: "<<student.avarge<<endl;
-    cout<<"Street "<<student.adr.street<<endl;
-    cout<<"NumBuild "<<student.adr.numBuild<<endl;
-    cout<<"NumFlat "<<student.adr.numFlat<<endl;
+    for (int i = 0; i < n; i++) {
+        cout<<info[i].name<<    "\t"<<info[i].avarge<<endl;
+    }
 
 
 
