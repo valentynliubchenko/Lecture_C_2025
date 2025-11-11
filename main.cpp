@@ -1,5 +1,5 @@
 #include <iostream>
-#include <stdlib.h>
+#include <time.h>
 #include <string.h>
 using namespace std;
 struct Tnod
@@ -43,6 +43,16 @@ int main()
     cout<<pcur->name<< " "<<pcur->num<<endl; //c
     pcur = pcur->next;  //перехід на наступний елемент (a)
     cout<<pcur->name<< " "<<pcur->num<<endl; //a
+    cout<<"---Start-------"<<endl;
+    pcur =&a;
+    srand(time(NULL));
+    int n = rand()%10;
+    for(int i=0;i<n;i++) {
+        cout<<pcur->name<< " "<<pcur->num<<endl;
+        pcur = pcur->next;  //перехід на наступний елемент
+    }
+    cout<<"Stop on "<<pcur->name<< " "<<pcur->num<<endl;
+    cout<<"---End-------"<<endl;
 
 
     return 0;
