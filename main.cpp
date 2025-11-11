@@ -11,6 +11,13 @@ struct Student {
     char name[100];
     int avarge;
 };
+
+void outputStutend (const Student * info, int n) {
+    for (int i = 0; i < n; i++) {
+        cout<<info[i].name<<    "\t"<<info[i].avarge<<endl;
+    }
+}
+
 int main()
 {
     char tmpStr[100]="";
@@ -43,9 +50,7 @@ int main()
      }
 
     //виведення
-    for (int i = 0; i < n; i++) {
-        cout<<info[i].name<<    "\t"<<info[i].avarge<<endl;
-    }
+    outputStutend(info, n);
 
     for (int k = 0; k < n-1; k++) {
         for (int i =0; i < n-1-k; i++) {
@@ -59,9 +64,8 @@ int main()
         }
     }
     cout<<"--------------------"<<endl;
-    for (int i = 0; i < n; i++) {
-        cout<<info[i].name<<    "\t"<<info[i].avarge<<endl;
-    }
+    outputStutend(info, n);
+
     delete [] info;
     return 0;
 }
