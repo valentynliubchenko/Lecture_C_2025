@@ -15,8 +15,15 @@ int main()
 {
     char tmpStr[100]="";
 
-    const int n =10;
-    Student info[n];
+    int n;
+    do {
+        cout<<"Enter n>0: ";
+        cin.getline(tmpStr,100);
+        n=atoi(tmpStr);
+    }while(n<=0);
+
+//    Student info[n];
+    Student * info = new Student[n];
     // for (int i = 0; i < n; i++) {
     //     cout << "Enter student name: ";
     //     cin.getline(info[i].name,99);
@@ -55,5 +62,6 @@ int main()
     for (int i = 0; i < n; i++) {
         cout<<info[i].name<<    "\t"<<info[i].avarge<<endl;
     }
+    delete [] info;
     return 0;
 }
