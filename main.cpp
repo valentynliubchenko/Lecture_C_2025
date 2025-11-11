@@ -5,54 +5,48 @@ using namespace std;
 struct Tnod
 {
     int num;
-    char name[100];
+    char name[10];
     Tnod* next;
 };
 
 int main()
 {
 
-    Tnod a,b,c;
-    a.num = 1;
-    strcpy(a.name,"name A");
-    b.num = 2;
-    strcpy(b.name,"name B");
-    c.num = 3;
-    strcpy(c.name,"name C");
+    Tnod * pbeg = NULL;
+    int n = 10;
+// створення лінійного списку
+    for (int i = 0; i < n; i++) {
+        Tnod * ptmp = new Tnod;  //1 крок
+        // 2 start
+        ptmp->num = i;
 
-    cout<<&a<<endl;
-    cout<<&b<<endl;
-    cout<<&c<<endl;
+        //name
+        for (int j = 0; j < 9; j++) {
+            ptmp->name[j] = 'A' + rand() % 26;
+        }
+        ptmp->name[9] = '\0';
+        // 2 end
 
-    a.next = &b;
-    b.next = &c;
-    c.next = &a;
+        ptmp->next = pbeg; //3 крок
+        pbeg = ptmp; //4 крок
 
-    cout<<a.name<< " "<<a.num<<endl;
-    cout<<a.next->name<< " "<<a.next->num<<endl;
-    cout<<b.name<< " "<<b.num<<endl;
-
-    cout<<a.next->next->name<< " "<<a.next->next->num<<endl;
-    cout<<c.name<< " "<<c.num<<endl;
-    cout<<"-------------"<<endl;
-    Tnod * pcur =&a;
-    cout<<pcur->name<< " "<<pcur->num<<endl; //a
-    pcur = pcur->next; //перехід на наступний елемент (b)
-    cout<<pcur->name<< " "<<pcur->num<<endl; //b
-    pcur = pcur->next;  //перехід на наступний елемент (c)
-    cout<<pcur->name<< " "<<pcur->num<<endl; //c
-    pcur = pcur->next;  //перехід на наступний елемент (a)
-    cout<<pcur->name<< " "<<pcur->num<<endl; //a
-    cout<<"---Start-------"<<endl;
-    pcur =&a;
-    srand(time(NULL));
-    int n = rand()%10;
-    for(int i=0;i<n;i++) {
-        cout<<pcur->name<< " "<<pcur->num<<endl;
-        pcur = pcur->next;  //перехід на наступний елемент
     }
-    cout<<"Stop on "<<pcur->name<< " "<<pcur->num<<endl;
-    cout<<"---End-------"<<endl;
+
+    // Друкування лінійного списку
+    Tnod * pcur = pbeg;
+    while (pcur != NULL) {
+        cout << pcur->num << " " <<pcur->name <<endl;
+
+        pcur = pcur->next;
+    }
+
+//звільнити лінійний список
+    while (pbeg != NULL) {
+        cout << "Delete "<<pbeg->num << " " <<pbeg->name <<endl;
+        Tnod * ptmp = pbeg; //1
+        pbeg = pbeg->next;//2
+        delete ptmp;//3
+    }
 
 
     return 0;
