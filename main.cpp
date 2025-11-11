@@ -7,6 +7,7 @@ struct T4
     struct T
     {
         int b;
+        int k;
     }obj;
     char c;
 };
