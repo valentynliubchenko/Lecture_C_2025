@@ -11,12 +11,11 @@ struct Student {
     char name[100];
     int avarge;
 };
-
-void outputStutend (const Student * info, int n) {
-    for (int i = 0; i < n; i++) {
-        cout<<info[i].name<<    "\t"<<info[i].avarge<<endl;
-    }
-}
+void outputStutend (const Student * info, int n);
+void outputStutend (const Student * info, int n);
+void outputStutend (const Student * info, int n);
+void outputStutend (const Student * info, int n);
+void outputStutend (const Student * info, int n);
 
 int main()
 {
@@ -68,4 +67,12 @@ int main()
 
     delete [] info;
     return 0;
+}
+
+
+
+void outputStutend (const Student * info, int n) {
+    for (int i = 0; i < n; i++) {
+        cout<<info[i].name<<    "\t"<<info[i].avarge<<endl;
+    }
 }
