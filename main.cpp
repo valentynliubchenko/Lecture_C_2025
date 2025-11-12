@@ -4,31 +4,22 @@
 // Відсортувати елементи масиву за абеткою та вивести на екран.
 
 #include <iostream>
-#include <string.h>
+#include <math.h>
 using namespace std;
 
+int sub (int a, int b) {
+    return a - b;
+}
 
 int main() {
-    char tmpStr[100] = "help me please";
-    char resstr[100]="";
-    cout << tmpStr << endl;;
-    strrev(tmpStr);
-    cout << tmpStr << endl;;
-    char sep[] = " ,.";
-    char *curWord = strtok(tmpStr, sep);
-    while (curWord != NULL) {
-        cout << curWord << endl;
-        strrev(curWord);
-        cout << curWord << endl;
-        strcat(resstr, curWord);
-        strcat(resstr, " ");
-        curWord = strtok(NULL, sep);
-    }
-    //     "help me"
-    //     "em pleh"
-    // "em" -> "me"
-    // "pleh" -> "help"
-    cout<<"----------"<<endl;
-    cout<<resstr<<endl;
+    cout << sub(10, 7) << endl;
+    int m =6, t=9;
+    int res = sub(m, t);
+    cout << res << endl;
+    int a = 10, b = 2;
+    cout << sub(a,b) << endl;
+    cout << sub(b,a) << endl;
+
     return 0;
 }
+
