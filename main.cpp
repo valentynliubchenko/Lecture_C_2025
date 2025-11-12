@@ -1,23 +1,51 @@
+#include <cstdint>
 #include <iostream>
-#include <math.h>
+#include <intrin.h>
 using namespace std;
-long long  factorial(int n) {
-    if (n<=1) return 1;
-    return n*factorial(n-1);
-}
-long long  factorialIter(int n) {
-    if (n<=1) return 1;
-    long long res =1;
-    for (int i=2;i<=n;i++) {
-        res *= i;
-    }
-    return res;
+int f1 (int a) {
+    cout<<"input a "<<a<<endl;
+    ++a;
+    cout<<"new a "<<a<<endl;
+    return a;
 }
 
-int main() {
-    for (int x = 1; x <= 20; ++x)
-        cout << "x=" << x << "\tfactorial="
-         << factorial(x) <<"\t" << factorialIter(x) << endl;
+int f2 (int* a) {
+    cout<<"input a "<<*a<<endl;
+    ++(*a);
+    cout<<"new a "<<(*a)<<endl;
+    return (*a);
+}
+
+int f3 (int& a) {
+    cout<<"input a "<<a<<endl;
+    ++a;
+    cout<<"new a "<<a<<endl;
+    return a;
+}
+
+
+int main()
+{
+    {
+        int obj1 =10;
+        int res = f1(obj1);
+        cout<<res<<endl;  //11
+        cout<<obj1<<endl; //10
+    }
+    cout<<"--------"<<endl;
+    {
+        int obj1 =10;
+        int res = f2(&obj1);
+        cout<<res<<endl;  //11
+        cout<<obj1<<endl; //10
+    }
+    cout<<"--------"<<endl;
+    {
+        int obj1 =10;
+        int res = f3(obj1);
+        cout<<res<<endl;  //11
+        cout<<obj1<<endl; //10
+    }
 
 
     return 0;
