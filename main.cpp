@@ -7,18 +7,20 @@
 #include <math.h>
 using namespace std;
 
-int sub (int a, int b) {
-    return a - b;
+double myExp (double a) {
+    return  exp(a+5.0);;
 }
 
+double myY (double a) {
+    double b = myExp(a);
+    double res = sin(b)/cos(-b);
+    return  res;
+}
+
+
 int main() {
-    cout << sub(10, 7) << endl;
-    int m =6, t=9;
-    int res = sub(m, t);
-    cout << res << endl;
-    int a = 10, b = 2;
-    cout << sub(a,b) << endl;
-    cout << sub(b,a) << endl;
+    cout << myExp(2.0) << endl;
+
 
     return 0;
 }
