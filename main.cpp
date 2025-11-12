@@ -7,72 +7,28 @@
 #include <string.h>
 using namespace std;
 
-struct Student {
-    char name[100];
-    int avarge;
-};
-void outputStutend (const Student * info, int n);
-void outputStutend (const Student * info, int n);
-void outputStutend (const Student * info, int n);
-void outputStutend (const Student * info, int n);
-void outputStutend (const Student * info, int n);
 
-int main()
-{
-    char tmpStr[100]="";
-
-    int n;
-    do {
-        cout<<"Enter n>0: ";
-        cin.getline(tmpStr,100);
-        n=atoi(tmpStr);
-    }while(n<=0);
-
-//    Student info[n];
-    Student * info = new Student[n];
-    // for (int i = 0; i < n; i++) {
-    //     cout << "Enter student name: ";
-    //     cin.getline(info[i].name,99);
-    //     cout << "Enter student avarge: ";
-    //     cin >> info[i].avarge;
-    //     cin.getline(tmpStr,99);
-    //     info[i].avarge = atoi(tmpStr);
-    // }
-    //введення
-    srand(time(NULL));
-     for (int i = 0; i < n; i++) {
-         info[i].avarge = 60 + rand() % 41;
-         for (int j = 0; j < 10; j++) {
-             info[i].name[j] = 'A' + rand() % 26;
-         }
-         info[i].name[10] = '\0';
-     }
-
-    //виведення
-    outputStutend(info, n);
-
-    for (int k = 0; k < n-1; k++) {
-        for (int i =0; i < n-1-k; i++) {
-            //if (strcmp(info[i+1].name, info[i].name) < 0) {
-            if (info[i+1].avarge < info[i].avarge) {
-                Student c;
-                c = info[i+1];
-                info[i+1] =info[i];
-                info[i]= c;
-            }
-        }
+int main() {
+    char tmpStr[100] = "help me please";
+    char resstr[100]="";
+    cout << tmpStr << endl;;
+    strrev(tmpStr);
+    cout << tmpStr << endl;;
+    char sep[] = " ,.";
+    char *curWord = strtok(tmpStr, sep);
+    while (curWord != NULL) {
+        cout << curWord << endl;
+        strrev(curWord);
+        cout << curWord << endl;
+        strcat(resstr, curWord);
+        strcat(resstr, " ");
+        curWord = strtok(NULL, sep);
     }
-    cout<<"--------------------"<<endl;
-    outputStutend(info, n);
-
-    delete [] info;
+    //     "help me"
+    //     "em pleh"
+    // "em" -> "me"
+    // "pleh" -> "help"
+    cout<<"----------"<<endl;
+    cout<<resstr<<endl;
     return 0;
-}
-
-
-
-void outputStutend (const Student * info, int n) {
-    for (int i = 0; i < n; i++) {
-        cout<<info[i].name<<    "\t"<<info[i].avarge<<endl;
-    }
 }
