@@ -2,27 +2,57 @@
 #include <math.h>
 using namespace std;
 
+void randMas(int* mas, int n)
+{
+    for (int i = 0; i < n; ++i)
+        mas[i] = rand() % 21 - 10;
+}
+void outputMas(const int* mas, int n)
+{
+    for (int i = 0; i < n; ++i)
+        cout << mas[i] << " ";
+    cout << endl;
+}
+bool cmpLess(int a, int b) {
+    return a < b;
+}
 
+bool cmpGreater(int a, int b) {
+    return a > b;
+}
 
-double (*p1) (double);
-double (*p2) (double, double);
+bool cmpLessAbs(int a, int b) {
+    return abs(a) < abs(b);
+}
 
+typedef bool (*Tcmp)(int, int);
 
-int main() {
-    p1 = &sin;
-    cout << sin(0.5) << "\n";
-    cout << (*p1)(0.5) << "\n";
-    cout << p1(0.5) << "\n";
+void sortMas(int* mas, int n, Tcmp cmp)
+{
+    for (int k = 0; k < n - 1; ++k)
+        for (int i = 0; i < n - 1 - k; ++i)
+        {
+            if (cmp (mas[i + 1], mas[i]))
+            {
+                int c = mas[i];
+                mas[i] = mas[i + 1];
+                mas[i + 1] = c;
+            }
+        }
+}
 
-    p1 = &cos;
-    cout << cos(0.5) << "\n";
-    cout << (*p1)(0.5) << "\n";
-    cout << p1(0.5) << "\n";
-
-    p1 = &tan;
-    p2 = &pow;
-    cout << p2(2.0,3) << "\n";
+int main()
+{
+    const int size = 10;
+    int massive[size];
+    randMas(massive, size);
+    outputMas(massive, size);
+    sortMas(massive, size, cmpLess);
+    outputMas(massive, size);
+    sortMas(massive, size, cmpGreater);
+    outputMas(massive, size);
+    sortMas(massive, size, cmpLessAbs);
+    outputMas(massive, size);
 
     return 0;
 }
-
