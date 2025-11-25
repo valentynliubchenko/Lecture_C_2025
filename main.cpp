@@ -1,18 +1,13 @@
 #include<iostream>
-#include<stdlib.h>
+#include "funct.h"
+#include "funct.h"
 using namespace std;
-#define WIN
-//#undef WIN
 
-// #if defined <==> #ifdef
-// #if !defined <==> #ifndef
+
 int main()
 {
-#ifndef UNIX
-    cout<<"Windows"<<endl;
-#else
-    cout<<"unix"<<endl;
-#endif
+    cout<<sum(5,7)<<endl;
+    cout<<sum(5.2,7.9)<<endl;
 
     return 0;
 }
