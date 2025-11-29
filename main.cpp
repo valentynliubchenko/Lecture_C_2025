@@ -69,6 +69,7 @@ int main() {
     }
 
     FILE *foutresult = fopen("result.txt", "w"); // відкриваємо бінарний файл для запису
+    FILE *foutresultbin = fopen("result.bin", "wb"); // відкриваємо бінарний файл для запису
     ////////
     //підрахуємо кількість від’ємних елементів
     for (int i = 0; i < n; i++) {
@@ -107,6 +108,9 @@ int main() {
     }
     printf("finish\n");
     printf("\nmaxSum = %d", maxSum);
+    fprintf(foutresult,"\t maxSum [%d]\n", maxSum);
+    fwrite(&maxSum, sizeof(maxSum), 1, foutresultbin);
+
     //звільнення динамічних масивів
     for (int i = 0; i < n; i++) {
         delete[]mas[i];
@@ -116,5 +120,12 @@ int main() {
     delete[]mas2;
     puts("\nFinish\n");
     fclose(foutresult);
+    fclose(foutresultbin);
+    FILE *finresultbin = fopen("result.bin", "rb");
+    int sunN;
+    fread(&sunN, sizeof(sunN), 1, finresultbin);
+    printf("sumN = %d", sunN);
+    fclose(finresultbin);
+
     return 0;
 }
